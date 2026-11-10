@@ -70,7 +70,6 @@ section.block{max-width:1180px;margin:0 auto;padding:4rem 1.25rem}
 /* Galería */
 .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1rem}
 .item{position:relative;aspect-ratio:4/5;border:0;padding:0;border-radius:12px;overflow:hidden;cursor:pointer;color:#fff;text-align:left;background:var(--c1)}
-.item:nth-child(5n+1){aspect-ratio:1/1}
 .item .art{position:absolute;inset:0;display:grid;place-items:center;font-size:4.5rem;background:radial-gradient(circle at 30% 20%,var(--c2),var(--c1) 70%)}
 .item .art::after{content:"";position:absolute;inset:14px;border:2px solid rgba(255,255,255,.35);border-radius:6px}
 .item .cap{position:absolute;left:0;right:0;bottom:0;padding:2rem .9rem .8rem;background:linear-gradient(transparent,rgba(0,0,0,.75));font-weight:600}
