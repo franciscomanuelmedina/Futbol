@@ -82,7 +82,49 @@
 <section class="band" id="entradas">
   <h2>Tu asiento te espera</h2>
   <p>Abonos de temporada y entradas sueltas. Los socios entran primero.</p>
-  <a class="btn main" href="#contacto">Hazte socio</a>
+  <button class="btn main" id="socioBtn" type="button" aria-expanded="false" aria-controls="socioPanel">Hazte socio</button>
+  <div class="socio-panel" id="socioPanel" inert>
+    <div class="socio-in">
+      <div class="socio-card">
+        <form id="socioForm">
+          <h3>Inscripción de socio</h3>
+          <div class="fields">
+            <label>Nombre
+              <input type="text" name="nombre" autocomplete="given-name" required>
+            </label>
+            <label>Apellidos
+              <input type="text" name="apellidos" autocomplete="family-name" required>
+            </label>
+            <label>Correo electrónico
+              <input type="email" name="email" autocomplete="email" required>
+            </label>
+            <label>Teléfono
+              <input type="tel" name="telefono" autocomplete="tel" pattern="[0-9 +]{9,15}" title="Introduce un teléfono válido (9 a 15 dígitos)" required>
+            </label>
+            <label class="full">Tipo de abono
+              <select name="abono" required>
+                <option value="" selected disabled>Elige una opción</option>
+                <option>Adulto</option>
+                <option>Juvenil (hasta 17 años)</option>
+                <option>Infantil (hasta 12 años)</option>
+                <option>Jubilado</option>
+              </select>
+            </label>
+          </div>
+          <label class="check"><input type="checkbox" name="acepto" required> Acepto las condiciones y el tratamiento de mis datos.</label>
+          <div class="actions">
+            <button class="btn main" type="submit">Enviar solicitud</button>
+            <button class="btn cancel" type="button" id="socioCancel">Cancelar</button>
+          </div>
+        </form>
+        <div class="socio-ok" id="socioOk" role="status" hidden>
+          <h3>¡Bienvenido/a, <span id="socioName"></span>!</h3>
+          <p>Hemos recibido tu solicitud. Te escribiremos pronto para confirmar tu abono.</p>
+          <button class="btn main" type="button" id="socioClose">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 </main>
 

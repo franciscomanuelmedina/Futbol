@@ -53,3 +53,25 @@ function tick(){
   for(const k in v)document.querySelector('[data-u="'+k+'"]').textContent=String(v[k]).padStart(2,"0");
 }
 tick();setInterval(tick,1000);
+
+// Desplegable de "Hazte socio"
+const socioBtn=document.getElementById("socioBtn"),socioPanel=document.getElementById("socioPanel"),
+  socioForm=document.getElementById("socioForm"),socioOk=document.getElementById("socioOk");
+function setSocio(open){
+  socioBtn.setAttribute("aria-expanded",open);
+  socioPanel.classList.toggle("open",open);
+  socioPanel.inert=!open;
+  if(open){
+    socioOk.hidden=true;socioForm.hidden=false;
+    setTimeout(()=>socioForm.elements.nombre.focus({preventScroll:true}),350);
+  }
+}
+socioBtn.addEventListener("click",()=>setSocio(socioBtn.getAttribute("aria-expanded")!=="true"));
+document.getElementById("socioCancel").addEventListener("click",()=>{setSocio(false);socioBtn.focus()});
+document.getElementById("socioClose").addEventListener("click",()=>{setSocio(false);socioBtn.focus()});
+socioForm.addEventListener("submit",e=>{
+  e.preventDefault();
+  document.getElementById("socioName").textContent=socioForm.elements.nombre.value.trim();
+  socioForm.reset();
+  socioForm.hidden=true;socioOk.hidden=false;
+});

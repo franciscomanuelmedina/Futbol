@@ -90,6 +90,27 @@ dialog p{margin:0 0 1rem;color:var(--muted)}
 .band h2{font:900 clamp(2rem,5vw,3rem)/1 var(--head);margin:0 0 .6rem;text-transform:uppercase}
 .band p{margin:0 auto 1.4rem;max-width:46ch;color:#c4cedb}
 
+/* Desplegable "Hazte socio" */
+.socio-panel{display:grid;grid-template-rows:0fr;max-width:620px;margin:0 auto;transition:grid-template-rows .35s ease}
+.socio-panel.open{grid-template-rows:1fr;margin-top:1.8rem}
+.socio-in{min-height:0;overflow:hidden;padding:4px}
+.socio-card{background:var(--surface);color:var(--text);border:2px solid var(--sun);border-radius:14px;padding:1.4rem;text-align:left}
+.socio-card h3{font:900 1.7rem/1 var(--head);margin:0 0 1rem;text-transform:uppercase}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.fields .full{grid-column:1/-1}
+.socio-card label{display:block;font-weight:600;font-size:.9rem}
+.socio-card input[type="text"],.socio-card input[type="email"],.socio-card input[type="tel"],.socio-card select{display:block;width:100%;margin-top:.3rem;padding:.65rem .8rem;border:2px solid var(--line);border-radius:8px;background:var(--bg);color:var(--text);font:400 1rem var(--body)}
+.socio-card input:focus-visible,.socio-card select:focus-visible{outline:3px solid var(--sun);outline-offset:1px}
+.socio-card input:user-invalid,.socio-card select:user-invalid{border-color:#c0392b}
+.socio-card .check{display:flex;gap:.6rem;align-items:flex-start;margin:1rem 0;font-weight:400;color:var(--muted)}
+.socio-card .check input{margin-top:.25rem;accent-color:var(--grass)}
+.actions{display:flex;flex-wrap:wrap;gap:.7rem}
+.btn.cancel{background:transparent;color:var(--text);border-color:var(--line)}
+.btn.cancel:hover{background:rgba(128,128,128,.15)}
+.socio-ok[hidden],.socio-card form[hidden]{display:none}
+.socio-ok p{margin:0 0 1rem;color:var(--muted);max-width:none}
+@media (max-width:560px){.fields{grid-template-columns:1fr}}
+
 /* Pie */
 footer{background:var(--grass-d);color:var(--chalk)}
 .foot{max-width:1180px;margin:0 auto;padding:3rem 1.25rem 1.5rem;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2rem}
@@ -101,4 +122,4 @@ footer{background:var(--grass-d);color:var(--chalk)}
 .foot p{margin:.5rem 0 0;font-size:.95rem;opacity:.9;max-width:32ch}
 .copy{border-top:1px solid rgba(244,241,232,.25);text-align:center;padding:1rem;font-size:.85rem;opacity:.85}
 @media (max-width:760px){.foot{grid-template-columns:1fr 1fr}.foot>div:first-child{grid-column:1/-1}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.item:hover .art{transform:none;transition:none}}
+@media (prefers-reduced-motion:reduce){.socio-panel{transition:none}html{scroll-behavior:auto}.item:hover .art{transform:none;transition:none}}
