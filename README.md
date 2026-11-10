@@ -26,3 +26,9 @@ Tareas realizadas
 - Integración de cambios.
 
 - Resolución de conflictos.
+
+---------------------------------------------------------------
+Imágenes de los prompt utilizados en nuestro proyecto
+
+![parte 1](img/Promp_tarea.png)
+![parte 2](img/formulario_hazte_socio.PNG)
