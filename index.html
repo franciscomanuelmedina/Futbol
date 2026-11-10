@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Club Entornos · Fútbol desde 1921</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Archivo:wght@400;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="#inicio" aria-label="Club Entornos, inicio">
+      <svg viewBox="0 0 44 48" aria-hidden="true">
+        <path d="M22 2 4 8v16c0 11 8 18 18 22 10-4 18-11 18-22V8z" fill="#f2c230" stroke="#f4f1e8" stroke-width="2"/>
+        <path d="M22 6 8 11v13c0 8.500 6 14.500 14 18V6z" fill="#1f6b3a"/>
+        <circle cx="22" cy="22" r="8" fill="#f4f1e8" stroke="#10223a" stroke-width="1.500"/>
+        <path d="m22 17 4 3-1.500 5h-5L18 20z" fill="#10223a"/>
+      </svg>
+      <span><b>CLUB ENTORNOS</b><small>Fútbol desde 1921</small></span>
+    </a>
+    <button class="burger" aria-expanded="false" aria-controls="menu">Menú</button>
+    <ul class="nav" id="menu">
+      <li><a href="#inicio" class="on">Inicio</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#entradas">Entradas</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <svg class="pitch" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs><pattern id="stripes" width="150" height="600" patternUnits="userSpaceOnUse"><rect width="75" height="600" fill="#000" opacity=".07"/></pattern></defs>
+    <rect width="1200" height="600" fill="url(#stripes)"/>
+    <g fill="none" stroke="#f4f1e8" stroke-width="4" opacity=".35">
+      <rect x="40" y="40" width="1120" height="520"/>
+      <line x1="600" y1="40" x2="600" y2="560"/>
+      <circle cx="600" cy="300" r="90"/>
+      <rect x="40" y="170" width="170" height="260"/><rect x="990" y="170" width="170" height="260"/>
+      <rect x="40" y="235" width="60" height="130"/><rect x="1100" y="235" width="60" height="130"/>
+      <path d="M210 250a70 70 0 0 1 0 100M990 250a70 70 0 0 0 0 100"/>
+    </g>
+  </svg>
+  <div class="hero-in">
+    <div>
+      <h1>Juega con<br>el corazón<br>del barrio</h1>
+      <p>Más de cien años en el campo. Este domingo te esperamos en las gradas del Estadio Entornos.</p>
+      <div class="cta">
+        <a class="btn main" href="#entradas">Comprar entradas</a>
+        <a class="btn ghost" href="#galeria">Ver la galería</a>
+      </div>
+    </div>
+    <aside class="match" aria-label="Próximo partido">
+      <h2>Próximo partido · Domingo 18:30</h2>
+      <div class="vs"><div>ENT<span>Local</span></div><div>VS</div><div>ATL<span>Visitante</span></div></div>
+      <div class="count" id="count" aria-live="off">
+        <div><b data-u="d">0</b><small>días</small></div>
+        <div><b data-u="h">0</b><small>horas</small></div>
+        <div><b data-u="m">0</b><small>min</small></div>
+        <div><b data-u="s">0</b><small>seg</small></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="block" id="galeria">
+  <h2 class="t">Galería del club</h2>
+  <p class="lead">Goles, afición y momentos de la temporada. Filtra por tema y pulsa una tarjeta para verla en grande.</p>
+  <div class="filters" role="group" aria-label="Filtrar galería">
+    <button aria-pressed="true" data-f="todo">Todo</button>
+    <button aria-pressed="false" data-f="partidos">Partidos</button>
+    <button aria-pressed="false" data-f="aficion">Afición</button>
+    <button aria-pressed="false" data-f="club">Club</button>
+  </div>
+  <div class="gallery" id="gallery"></div>
+</section>
+
+<section class="band" id="entradas">
+  <h2>Tu asiento te espera</h2>
+  <p>Abonos de temporada y entradas sueltas. Los socios entran primero.</p>
+  <button class="btn main" id="socioBtn" type="button" aria-expanded="false" aria-controls="socioPanel">Hazte socio</button>
+  <div class="socio-panel" id="socioPanel" inert>
+    <div class="socio-in">
+      <div class="socio-card">
+        <form id="socioForm">
+          <h3>Inscripción de socio</h3>
+          <div class="fields">
+            <label>Nombre
+              <input type="text" name="nombre" autocomplete="given-name" required>
+            </label>
+            <label>Apellidos
+              <input type="text" name="apellidos" autocomplete="family-name" required>
+            </label>
+            <label>Correo electrónico
+              <input type="email" name="email" autocomplete="email" required>
+            </label>
+            <label>Teléfono
+              <input type="tel" name="telefono" autocomplete="tel" pattern="[0-9 +]{9,15}" title="Introduce un teléfono válido (9 a 15 dígitos)" required>
+            </label>
+            <label class="full">Tipo de abono
+              <select name="abono" required>
+                <option value="" selected disabled>Elige una opción</option>
+                <option>Adulto</option>
+                <option>Juvenil (hasta 17 años)</option>
+                <option>Infantil (hasta 12 años)</option>
+                <option>Jubilado</option>
+              </select>
+            </label>
+          </div>
+          <label class="check"><input type="checkbox" name="acepto" required> Acepto las condiciones y el tratamiento de mis datos.</label>
+          <div class="actions">
+            <button class="btn main" type="submit">Enviar solicitud</button>
+            <button class="btn cancel" type="button" id="socioCancel">Cancelar</button>
+          </div>
+        </form>
+        <div class="socio-ok" id="socioOk" role="status" hidden>
+          <h3>¡Bienvenido/a, <span id="socioName"></span>!</h3>
+          <p>Hemos recibido tu solicitud. Te escribiremos pronto para confirmar tu abono.</p>
+          <button class="btn main" type="button" id="socioClose">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<dialog id="lb" aria-label="Imagen ampliada">
+  <div class="big" id="lbArt"></div>
+  <div class="txt"><h3 id="lbT"></h3><p id="lbD"></p><button class="btn main" id="lbX">Cerrar</button></div>
+</dialog>
+
+<footer id="contacto">
+  <div class="foot">
+    <div>
+      <h4>Club Entornos</h4>
+      <p>Un club de barrio con vocación de campeón. Gracias por estar en cada jornada.</p>
+    </div>
+    <div><h4>Club</h4><ul><li><a href="#inicio">Historia</a></li><li><a href="#galeria">Galería</a></li><li><a href="#entradas">Abonos</a></li></ul></div>
+    <div><h4>Contacto</h4><ul><li>info@clubentornos.example</li><li>+34 955 000 000</li><li>Av. del Estadio 1, Sevilla</li></ul></div>
+    <div><h4>Síguenos</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">X</a></li><li><a href="#">YouTube</a></li></ul></div>
+  </div>
+  <div class="copy">© 2026 Club Entornos. Club ficticio de ejemplo.</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
